@@ -9,7 +9,7 @@ class EjsModTpl {
    */
   constructor(moduleWrapperEle) {
     this.moduleWrapperEle = moduleWrapperEle;
-    let dataStr = this.moduleWrapperEle.find(".schema-data-ejs-component-video-mobile").val();
+    let dataStr = this.moduleWrapperEle.find("${schema-data}").val();
     this.data = JSON.parse(dataStr);
     this.preHandle();
     this.registerEvents();
