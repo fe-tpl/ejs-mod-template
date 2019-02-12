@@ -7,8 +7,19 @@ class EjsModTpl {
   /**
    * 构造器，初始化相关信息
    */
-  constructor() {
+  constructor(moduleWrapperEle) {
+    this.moduleWrapperEle = moduleWrapperEle;
+    let dataStr = this.moduleWrapperEle.find(".schema-data-ejs-component-video-mobile").val();
+    this.data = JSON.parse(dataStr);
+    this.preHandle();
     this.registerEvents();
+  }
+
+  /**
+   * 页面预处理
+   */
+  preHandle() {
+    
   }
 
   /**
@@ -16,9 +27,13 @@ class EjsModTpl {
    * @return {void} 无返回值
    */
   registerEvents() {
-    $("body").on("click", ".xxxx", function () {
+    let _this = this;
+    this.moduleWrapperEle.find(".xxx").off().on("click", function () {
 
     });
   }
 }
-new EjsModTpl();
+let moduleWrappersDoms = $(".freedom-module-wrapper");
+$.each(moduleWrappersDoms, function (v, t) {
+  new EjsModTpl($(t));
+});
