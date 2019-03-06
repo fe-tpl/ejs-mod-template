@@ -33,7 +33,7 @@ class EjsModTpl {
     });
   }
 }
-let moduleWrappersDoms = $(".freedom-module-wrapper");
+let moduleWrappersDoms = $(".freedom-module-wrapper {module-name}");
 $.each(moduleWrappersDoms, function (v, t) {
   new EjsModTpl($(t));
 });
